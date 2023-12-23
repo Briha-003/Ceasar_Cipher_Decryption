@@ -34,7 +34,7 @@ public class Caesar_Cipher_Decryption
     public static void main(String[] args) 
     {
         String text;
-        int shift = 3;
+        int shift = 3; // For Ceasar Cipher the shift/key will always be 3.
         
         Scanner sc = new Scanner(System.in);
         
