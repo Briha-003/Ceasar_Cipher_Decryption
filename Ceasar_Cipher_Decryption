@@ -1,0 +1,47 @@
+// Ceaser Cipher Decryption..
+
+import java.util.Scanner;
+
+public class Caesar_Cipher_Decryption 
+{
+    public static String decrypt(String cipherText, int shift) 
+    {
+        StringBuilder decryptedText = new StringBuilder();
+
+        for (char c : cipherText.toCharArray()) 
+        {
+            if (Character.isUpperCase(c)) 
+            {
+                char shiftedChar = (char) (((c - 'A' - shift + 26) % 26) + 'A');
+                decryptedText.append(shiftedChar);
+            } 
+            
+            else if (Character.isLowerCase(c)) 
+            {
+                char shiftedChar = (char) (((c - 'a' - shift + 26) % 26) + 'a');
+                decryptedText.append(shiftedChar);
+            } 
+            
+            else 
+            {
+                decryptedText.append(c);
+            }
+        }
+
+        return decryptedText.toString();
+    }
+
+    public static void main(String[] args) 
+    {
+        String text;
+        int shift = 3;
+        
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Enter the text that has to be decrypted: ");
+        text = sc.next();
+        
+        String decrypted = decrypt(text, shift);
+        System.out.println("Decrypted: " + decrypted);
+    }
+}
